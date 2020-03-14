@@ -1,19 +1,117 @@
- <h2 class="page-header">{{user.name}} <span style="color: blue">(@{{user.username}})</span></h2>
-<div style="margin-left: 30%">
- <img class="profilestyle" src="/upload/{{user.userImage}}" alt="{{user.userImage}}" >
- <form action="/" enctype="multipart/form-data" method="post" style="margin-top: 10px">
- <label class="custombutton" id="custombutton" style="width:200px;border: 1px solid #ccc;display: inline-block; padding: 6px 12px;cursor: pointer;">
- <input type="file" name="upload" accept="image/*" style=" display: none;" onchange="document.getElementById('custombutton').style.border = '2px solid lightgreen'">
- Select new file 
- </label>
- <input type="submit" value="Upload" style="border: 1px solid #2d2d2d ; padding: 6px 12px; cursor: pointer; background-color: #2d2d2d; color: #ccc">
- </form>
-</div>
-<div style="text-align: center;">
-	<h3 style="background-color: whitesmoke; padding: 10px; border-radius: 5px; border: 1px solid lightgray">My Friends</h3>
-	{{#each user.friendsList}}
-	<p>
-		{{this.friendName}}
-	</p>
-	{{/each}}
-</div>
+ 
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+	 <meta charset="UTF-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <link rel="stylesheet" href="style_index.css">
+	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	 <style>
+		 #profile{
+			 width: 45%;
+			 float: left;
+		 }
+		 #profile{
+			 border-right: 1px solid #ccc;
+		 }
+		 .page-header span{
+			 color: blue;
+		 }
+		 #list-friend{
+			 width: 55%;
+			 float: left;
+			 margin-top: -21px;
+			
+		 }
+		 #list-friend .title{
+			 width: 100%;
+			  border-bottom: 1px solid #eee;
+			  text-align: center;
+		 }
+		 #list-friend .title h3{
+			 font-size: 30px;
+		 }
+		 #list-friend ul{
+			 
+			 margin-top: 10px;
+			 margin-left: 10px;
+			 width: 100%;
+			 height: 40px;
+			 font-size: 20px;
+			list-style-type: none;
+			border: 1px solid #ccc;
+			background-color: #eee;
+		 }
+		 #list-friend ul .chat{
+			 float: right;
+		 }
+		 #list-friend ul .delete{
+			 float: right;
+		 }
+		 #list-friend ul a{
+				padding: 5px 15px;	
+				text-decoration: none;
+		 }
+		 
+	 </style>
+ </head>
+ <body>
+	<div id="profile">
+		<h2 class="page-header">
+			{{user.name}} 
+			<span>({{user.username}})</span>
+		</h2>
+		<div>
+			 <img class="profilestyle" src="/upload/{{user.userImage}}" alt="{{user.userImage}}" >
+			 <form action="/" enctype="multipart/form-data" method="post" style="margin-top: 10px">
+				 <label class="custombutton" id="custombutton" style="width:200px;border: 1px solid #ccc;display: inline-block; padding: 6px 12px;cursor: pointer;">
+				 <input type="file" name="upload" accept="image/*" style=" display: none;" onchange="document.getElementById('custombutton').style.border = '2px solid lightgreen'">
+				 Chọn ảnh mới 
+				 </label>
+				 <input type="submit" value="Upload" style="border: 1px solid #2d2d2d ; padding: 6px 12px; cursor: pointer; background-color: #2d2d2d; color: #ccc">
+			 </form>
+		</div>
+		
+	</div>
+	<div id="list-friend">
+		<div>
+			<div class="title">
+			<h3>Danh sách bạn bè</h3>
+			</div>
+			{{#each user.friendsList}}
+			<ul>
+				<li>
+					<a href="#">
+						{{this.friendName}}
+					</a>
+					<a href="#" class="delete">
+						<i class="fas fa-user-slash"></i>
+					</a>
+					<a href="#" class="chat">
+						<i class="fas fa-comments"></i>
+					</a>
+					
+				</li>
+			</ul>
+			
+			{{/each}}
+		</div>
+
+	</div>
+ </body>
+ </html>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

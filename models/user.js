@@ -29,7 +29,8 @@ var UserSchema = mongoose.Schema({
 	}],
 	friendsList: [{
 		friendId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-		friendName: {type: String, default: ''}
+		friendName: {type: String, default: ''},
+		friendImage: {type: String, default: ''}
 	}],
 	totalRequest: {type: Number, default:0}
 });
