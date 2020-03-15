@@ -6,14 +6,15 @@ var path = require('path');
 var async = require('async');
 
 
-/*
+
 router.get('/', ensureAuthenticated, function(req, res){
 	
 	res.render('index', {
-		newfriend: req.user.request
+		newfriend: req.user.request,
 	});
 });
-*/
+
+/*
 router.get('/', ensureAuthenticated, function(req, res){
 	var sent =[];
 	var friends= [];
@@ -35,6 +36,17 @@ router.get('/', ensureAuthenticated, function(req, res){
 		});
 	});
 });
+*/
+//delete
+router.get('/delete',function(req, res){
+	id = req.query.id;
+	console.log(id);
+	User.findByIdAndRemove(id).then((data) => {
+		res.redirect('/');
+	});
+
+})
+
 
 
 router.get('/search', ensureAuthenticated, function(req, res){
