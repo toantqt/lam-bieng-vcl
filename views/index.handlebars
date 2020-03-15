@@ -4,9 +4,11 @@
  <head>
 	 <meta charset="UTF-8">
 	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	 <link rel="stylesheet" href="style_index.css">
-	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-	 <style>
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	 <script src="/js/jquery.js"></script>
+     <script src="socket.io/socket.io.js"></script>
+     <script src="/js/client.js"></script>
+     <style>
 		 #profile{
 			 width: 40%;
 			 float: left;
@@ -121,11 +123,9 @@
                     <a href="#" class="video">
                         <i class="fas fa-video"></i>
                     </a>
-					<a href="#" class="chat">
+					<a href="#" id="chat" class="chat">
 						<i class="fas fa-comments"></i>
 					</a>
-                    
-					
 				</li>
 			</ul>
 			{{/each}}
@@ -140,9 +140,7 @@
 					<textarea name="message" placeholder="Điền vào để gửi"></textarea>
 					<input type="submit" name="send" value="Gửi">
 				</form>
-		
-			
-		</div>
+		    </div>
         </div>
 
 	</div>
