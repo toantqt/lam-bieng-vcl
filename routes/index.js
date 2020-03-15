@@ -5,13 +5,37 @@ var User = require('../models/user');
 var path = require('path');
 var async = require('async');
 
-// Get Homepage
+
+/*
 router.get('/', ensureAuthenticated, function(req, res){
 	
 	res.render('index', {
 		newfriend: req.user.request
 	});
 });
+*/
+router.get('/', ensureAuthenticated, function(req, res){
+	var sent =[];
+	var friends= [];
+	var received= [];
+	received= req.user.request;
+	sent= req.user.sentRequest;
+	friends= req.user.friendsList;
+	
+
+
+	User.find({username: {$ne: req.user.username}}, function(err, result){
+		if (err) throw err;
+		
+		res.render('index',{
+			result: result,
+			sent: sent,
+			friends: friends,
+			received: received
+		});
+	});
+});
+
 
 router.get('/search', ensureAuthenticated, function(req, res){
 	var sent =[];

@@ -41,6 +41,8 @@
 			list-style-type: none;
 			border: 1px solid #ccc;
 			background-color: #eee;
+			padding: 5px 15px;	
+			
 		 }
 		 #list-friend ul .chat{
 			 float: right;
@@ -78,11 +80,12 @@
 			<div class="title">
 			<h3>Danh sách bạn bè</h3>
 			</div>
-			{{#each user.friendsList}}
+			{{#each result}}
 			<ul>
 				<li>
+					<img class="image" src="upload/{{this.userImage}}" width="30px" height="30px">
 					<a href="#">
-						{{this.friendName}}
+						{{this.name}}
 					</a>
 					<a href="#" class="delete">
 						<i class="fas fa-user-slash"></i>
