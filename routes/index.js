@@ -8,9 +8,13 @@ var async = require('async');
 
 
 router.get('/', ensureAuthenticated, function(req, res){
-	
+	var friends = [];
+	friends = req.user.friendsList;
+	var stt = friends.length;
+	console.log(stt);
 	res.render('index', {
 		newfriend: req.user.request,
+		stt: stt
 	});
 });
 
