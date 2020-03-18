@@ -41,6 +41,11 @@ router.get('/', ensureAuthenticated, function(req, res){
 	});
 });
 */
+//video call
+router.get('/call', function(req, res){
+	res.render('videoCall');
+})
+
 //delete
 router.get('/delete',function(req, res){
 	id = req.query.id;

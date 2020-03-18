@@ -12,7 +12,7 @@ $(document).ready(function(){
     
 
     //event client send id
-    $("#chat").click(function(){
+    $(".chat").click(function(){
         socket.emit('client-id', 111111);
         $("#list").hide(1500);
         $("#msg-frame").show(1000);

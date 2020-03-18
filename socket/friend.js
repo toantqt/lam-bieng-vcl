@@ -15,7 +15,6 @@ module.exports= function(io) {
 		*/
 		//listen client send id
 		socket.on('client-id', (data) => {
-			console.log(data);
 			console.log(socket.id);
 			socket.emit('server-success', (data) => {
 				console.log(data);
