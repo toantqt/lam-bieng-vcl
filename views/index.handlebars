@@ -12,12 +12,14 @@
 		 #profile{
 			 width: 40%;
 			 float: left;
+			 
 		 }
 		 .page-header span{
 			 color: blue;
 		 }
 		 #list-friend{
 			 width: 60%;
+			 height: 500px;
 			 float: left;
 			 margin-top: -21px;
              border-left: 1px solid #ccc;
@@ -84,7 +86,17 @@
             margin-left: 0;
             float: right;
         }
-
+		#chat-all {
+			background-color: #eee;
+			font-size: 13px;
+			width: 80%;
+		}
+		#chat-group {
+			margin-top: 9px;
+			background-color: #eee;
+			font-size: 13px;
+			width: 80%;
+		}
 	 </style>
  </head>
  <body>
@@ -102,6 +114,12 @@
 				 </label>
 				 <input type="submit" value="Upload" style="border: 1px solid #2d2d2d ; padding: 6px 12px; cursor: pointer; background-color: #2d2d2d; color: #ccc">
 			 </form>
+			 <div id="chat-all">
+			 <a href="#"><i class="fas fa-globe-americas fa-2x">&nbsp &nbsp Chat All</i></a>
+			 </div>
+			 <div id="chat-group">
+			 <a href="#"><i class="fas fa-users fa-2x"> &nbsp Chat Group </i></a>
+			 </div>	
 		</div>
 		
 	</div>

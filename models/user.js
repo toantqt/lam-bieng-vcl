@@ -32,6 +32,10 @@ var UserSchema = mongoose.Schema({
 		friendName: {type: String, default: ''},
 		friendImage: {type: String, default: ''}
 	}],
+	chatAll: {
+		type: String,
+		default: ''
+	},
 	totalRequest: {type: Number, default:0}
 });
 
