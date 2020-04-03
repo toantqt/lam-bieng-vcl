@@ -8,10 +8,15 @@ var expressValidator = require('express-validator');
 var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('passport');
+var passportSocketIo = require('passport.socketio');
 var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var socketIO = require('socket.io');
+var MongoStore = require('connect-mongo')(session)
+var sessionStore = new MongoStore({
+  url: 'mongodb://localhost/toantqtNLN'
+});
 
 mongoose.connect('mongodb://localhost/toantqtNLN');
 var db = mongoose.connection;
@@ -23,10 +28,7 @@ var users = require('./routes/users');
 var app = express();
 const server = http.createServer(app);
 const io= socketIO(server);
-
-
-
-require('./socket/friend')(io);
+require('./socket/test')(io);
 // View Engine
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({
@@ -54,6 +56,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Express Session
 app.use(session({
     secret: 'secret',
+    store: sessionStore,
     saveUninitialized: true,
     resave: true
 }));
@@ -61,6 +64,17 @@ app.use(session({
 // Passport init
 app.use(passport.initialize());
 app.use(passport.session());
+
+//
+
+// io.use(passportSocketIo.authorize({
+//   cookieParser: cookieParser,       // the same middleware you registrer in express
+//   key:          'express.sid',       // the name of the cookie where express/connect stores its session_id
+//   secret:       'session_secret',    // the session_secret to parse the cookie
+//   store:        sessionStore,        // we NEED to use a sessionstore. no memorystore please
+//   //success:      onAuthorizeSuccess,  // *optional* callback on success - read more below
+//   //fail:         onAuthorizeFail,     // *optional* callback on fail/error - read more below
+// }));
 
 // Express Validator
 app.use(expressValidator({

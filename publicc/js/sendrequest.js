@@ -19,7 +19,7 @@ function addFriend(name) {
 $(document).ready(function(){
 		$('.friend-add').on('click', function(e){
 			e.preventDefault();
-		});
+		});x
 		$('#accept_friend').on('click', function(){
 			var senderId= $('#senderId').val();
 			var senderName= $('#senderName').val();
