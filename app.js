@@ -112,10 +112,10 @@ app.use('/', routes);
 app.use('/users', users);
 
 // Set Port
- app.set('port', (process.env.PORT || 5000));
+ app.set('port', (process.env.PORT || 8080));
 
 
 
 server.listen(app.get('port'),function(){
-      console.log('listening on port 5000');
+      console.log('listening on port 8080');
     });
